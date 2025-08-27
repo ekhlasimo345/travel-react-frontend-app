@@ -1,28 +1,29 @@
-import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 import { Outlet } from "react-router"
 import { NavLink } from "react-router"
 
+
 import { useState } from 'react'
+import NavMenu from './components/NavMenu'
 
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      <nav >
-        <NavLink to="/">menu map</NavLink>
-        <NavLink to="/about">menu about</NavLink>
-
-      </nav>
-      
-      <Outlet />
+    <Container maxWidth="lg">
+      <Box >
+        <NavMenu />
+              <Outlet />
 
 
-      <footer>
-        <p>copyright</p>
-      </footer>
-    </>
+              <footer>
+                <p>copyright</p>
+              </footer>
+      </Box>
+     
+    </Container>
   )
 }
 
