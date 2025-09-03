@@ -4,10 +4,12 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
+import { Auth0Provider } from '@auth0/auth0-react';
 
 import App from './App.jsx'
 import MapPage from './components/MapPage.jsx';
 import AboutPage from './components/AboutPage.jsx';
+
 
 
 
@@ -19,21 +21,32 @@ const theme = createTheme({
 });
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <ThemeProvider theme={theme}>
-      {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-      <CssBaseline />
+  <Auth0Provider
+    domain="journey-hero.eu.auth0.com"
+    clientId="6uRYTKCFD8BNLrraRrRlUyM7BxbSknmP"
+    useRefreshTokens = {true}
+    authorizationParams={{
+      redirect_uri: window.location.origin
+    }}
+  >
 
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<App />}>
-            <Route index element={<MapPage />}/>
-            <Route path="about" element={<AboutPage />}/>
-          </Route>
-        </Routes>
-      </BrowserRouter>
+    <StrictMode>
+      <ThemeProvider theme={theme}>
+        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        <CssBaseline />
 
-    </ThemeProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<App />}>
+              <Route index element={<MapPage />}/>
+              <Route path="about" element={<AboutPage />}/>
+            </Route>
+          </Routes>
+        </BrowserRouter>
 
-  </StrictMode>,
+      </ThemeProvider>
+
+    </StrictMode>
+  </Auth0Provider>
+
 )
