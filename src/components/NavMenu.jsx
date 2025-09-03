@@ -11,7 +11,10 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import TravelExploreIcon from '@mui/icons-material/TravelExplore';
+import { useNavigate } from "react-router";
+
+
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -19,6 +22,7 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 function NavMenu() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  let navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -39,7 +43,7 @@ function NavMenu() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <TravelExploreIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -55,7 +59,7 @@ function NavMenu() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            JOURNEY HERO
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -85,14 +89,15 @@ function NavMenu() {
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem key="home" onClick={e => { handleCloseNavMenu(); navigate("/"); }}>
+               <Typography sx={{ textAlign: 'center' }}>Home</Typography>
+              </MenuItem>
+               <MenuItem key="about" onClick={e => { handleCloseNavMenu(); navigate("/about"); }}>
+                <Typography sx={{ textAlign: 'center' }}>About</Typography>           
+              </MenuItem>
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <TravelExploreIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -109,18 +114,23 @@ function NavMenu() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            JOURNEY HERO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+            <Button
+                key="home"
+                onClick={e => { handleCloseNavMenu(); navigate("/"); }}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                Home
               </Button>
-            ))}
+               <Button
+                key="about"
+                onClick={e => { handleCloseNavMenu(); navigate("/about"); }}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                About
+              </Button>
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
