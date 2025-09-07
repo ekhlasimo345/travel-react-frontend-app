@@ -15,7 +15,7 @@ import Button from '@mui/material/Button';
 
 function LoginLogout() {
   const [anchorElUser, setAnchorElUser] = useState(null);
-  const { isAuthenticated, loginWithRedirect, logout  } = useAuth0();
+  const { isAuthenticated, loginWithRedirect, logout , user } = useAuth0();
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -31,7 +31,7 @@ function LoginLogout() {
             <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar alt="Mohammad" src="/static/images/avatar/2.jpg" />
+                    <Avatar alt={user.name} src={user.picture} />
                 </IconButton>
                 </Tooltip>
                 <Menu
