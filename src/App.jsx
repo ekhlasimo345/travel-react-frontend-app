@@ -18,7 +18,7 @@ function App() {
 
 
               <footer>
-                <p>copyright</p>
+                <p>copyright </p>
               </footer>
       </Box>
      
