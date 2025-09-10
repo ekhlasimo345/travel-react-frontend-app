@@ -1,6 +1,9 @@
 import GoogleMapReact from 'google-map-react';
-import { useState } from 'react'
+import { useState , useEffect } from 'react'
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import Tooltip from '@mui/material/Tooltip';
+
+
 
 import './MapPage.css'
 
@@ -14,7 +17,16 @@ const defaultMapProps = {
 
 
 function MapPage() {
-  const [count, setCount] = useState(0)
+      const [fetchedAttractions, setFetchedAttractions] = useState([])
+
+
+      useEffect(() => {
+        fetch("https://devoted-achievement-production.up.railway.app/api/attraction?searchPointLongitude=4.402771&searchPointLatitude=51.260197&searchDistanceKm=10")
+            .then(response => response.json())
+            // 4. Setting *dogImage* to the image url that we received from the response above
+            .then(data => setFetchedAttractions(data.content))
+    },[])
+
 
   return (
     <>
@@ -24,7 +36,12 @@ function MapPage() {
         defaultCenter={defaultMapProps.center}
         defaultZoom={defaultMapProps.zoom}
       >
-        <LocationOnIcon lat="	51.260197" lng="4.402771" className="attraction-icon-box"/>
+        {fetchedAttractions.map(element => (
+              <Tooltip title={element.attraction.name} lat={element.attraction.location.coordinates[1]} lng={element.attraction.location.coordinates[0]}>
+                  <LocationOnIcon  className="attraction-icon-box"/>
+              </Tooltip>
+
+            ))}
       </GoogleMapReact>
 
     </div>
