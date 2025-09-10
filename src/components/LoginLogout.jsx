@@ -29,7 +29,7 @@ function LoginLogout() {
     return (
         <>
             <Box sx={{ flexGrow: 0 }}>
-                <Tooltip title="Open settings">
+                <Tooltip title={user.email}>
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                     <Avatar alt={user.name} src={user.picture} />
                 </IconButton>
@@ -51,7 +51,7 @@ function LoginLogout() {
                 onClose={handleCloseUserMenu}
                 >
                     <MenuItem key="logout" onClick={e => { logout(); }  }>
-                        <Typography sx={{ textAlign: 'center' }}>logout</Typography>
+                        <Typography sx={{ textAlign: 'center' }}>LOG OUT</Typography>
                     </MenuItem>
                 </Menu>
             </Box>
@@ -59,7 +59,7 @@ function LoginLogout() {
     )
   } else {
     return (
-        <Button onClick={e => loginWithRedirect() }>Log in</Button>
+        <Button onClick={e => loginWithRedirect() }>LOG IN</Button>
     )
   }
   
