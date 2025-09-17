@@ -4,8 +4,9 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Tooltip from '@mui/material/Tooltip';
 
 
-
+import MapSearch from './MapSearch';
 import './MapPage.css'
+
 
 const defaultMapProps = {
     center: {
@@ -18,6 +19,9 @@ const defaultMapProps = {
 
 function MapPage() {
       const [fetchedAttractions, setFetchedAttractions] = useState([])
+      const [mapSearchParams, setMapSearchParams] = useState({
+        center: defaultMapProps.center
+      })
 
 
       useEffect(() => {
@@ -27,13 +31,24 @@ function MapPage() {
             .then(data => setFetchedAttractions(data.content))
     },[])
 
+    function newSearch(longitude, latitude) {
+      setMapSearchParams({
+        center: {
+          lng: longitude,
+          lat: latitude
+        }
+      })
+    }
 
   return (
     <>
+  
      <div style={{ height: '100vh', width: '100%' }}>
+        <MapSearch searchCallback={ newSearch } />
       <GoogleMapReact
         bootstrapURLKeys={{ key: import.meta.env.VITE_GOOGLE_MAPS_API_KEY }}
         defaultCenter={defaultMapProps.center}
+        center={mapSearchParams.center}
         defaultZoom={defaultMapProps.zoom}
       >
         {fetchedAttractions.map(element => (
