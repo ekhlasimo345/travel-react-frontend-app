@@ -22,8 +22,8 @@ const theme = createTheme({
 
 createRoot(document.getElementById('root')).render(
   <Auth0Provider
-    domain="journey-hero.eu.auth0.com"
-    clientId="6uRYTKCFD8BNLrraRrRlUyM7BxbSknmP"
+    domain={ import.meta.env.VITE_AUTH0_DOMAIN }
+    clientId={ import.meta.env.VITE_AUTH0_CLIENT_ID}
     useRefreshTokens = {true}
     authorizationParams={{
       redirect_uri: window.location.origin

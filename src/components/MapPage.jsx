@@ -21,7 +21,7 @@ function MapPage() {
 
 
       useEffect(() => {
-        fetch("https://devoted-achievement-production.up.railway.app/api/attraction?searchPointLongitude=4.402771&searchPointLatitude=51.260197&searchDistanceKm=10")
+        fetch(`${import.meta.env.VITE_TRAVEL_APP_BACKEND_BASE_URL}/api/attraction?searchPointLongitude=4.402771&searchPointLatitude=51.260197&searchDistanceKm=10`)
             .then(response => response.json())
             // 4. Setting *dogImage* to the image url that we received from the response above
             .then(data => setFetchedAttractions(data.content))
@@ -32,7 +32,7 @@ function MapPage() {
     <>
      <div style={{ height: '100vh', width: '100%' }}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyCTTwaHdDb5GtrNJraHlZI6QEd6R1Mtqyg" }}
+        bootstrapURLKeys={{ key: import.meta.env.VITE_GOOGLE_MAPS_API_KEY }}
         defaultCenter={defaultMapProps.center}
         defaultZoom={defaultMapProps.zoom}
       >
