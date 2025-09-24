@@ -2,6 +2,8 @@ import GoogleMapReact from 'google-map-react';
 import { useState , useEffect } from 'react'
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Tooltip from '@mui/material/Tooltip';
+import Slider from '@mui/material/Slider';
+import Box from '@mui/material/Box';
 
 
 import MapSearch from './MapSearch';
@@ -45,6 +47,19 @@ function MapPage() {
   
      <div style={{ height: '100vh', width: '100%' }}>
         <MapSearch searchCallback={ newSearch } />
+          <Box sx={{ width: 300 }}>
+      <Slider
+        aria-label="Temperature"
+        defaultValue={30}
+        //getAriaValueText={valuetext}
+        valueLabelDisplay="auto"
+        shiftStep={30}
+        step={10}
+        marks
+        min={10}
+        max={100}
+      />
+    </Box>
       <GoogleMapReact
         bootstrapURLKeys={{ key: import.meta.env.VITE_GOOGLE_MAPS_API_KEY }}
         defaultCenter={defaultMapProps.center}
