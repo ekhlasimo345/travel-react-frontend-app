@@ -64,8 +64,8 @@ function MapSearch({searchCallback}) {
     ).then(response => response.json())
     .then(data => {
       if (data.places.length > 0) {
-        var zoomLevel = searchDistanceMarks.filter(e => e.value == searchDistanceValue)[0].zoom
-        searchCallback(data.places[0].location.longitude, data.places[0].location.latitude, zoomLevel)
+        var mark = searchDistanceMarks.filter(e => e.value == searchDistanceValue)[0]
+        searchCallback(data.places[0].location.longitude, data.places[0].location.latitude, mark.zoom, mark.distance)
       }
     })
   }
