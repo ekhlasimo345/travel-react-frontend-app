@@ -2,12 +2,11 @@ import GoogleMapReact from 'google-map-react';
 import { useState , useEffect } from 'react'
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Tooltip from '@mui/material/Tooltip';
-import Slider from '@mui/material/Slider';
-import Box from '@mui/material/Box';
 
 
 import MapSearch from './MapSearch';
 import './MapPage.css'
+import {defaultDistanceMark} from './MapSearch'
 
 
 const defaultMapProps = {
@@ -15,7 +14,7 @@ const defaultMapProps = {
       lat: 	51.260197,
       lng: 4.402771
     },
-    zoom: 11
+    zoom: defaultDistanceMark.zoom
   };
 
 
@@ -33,12 +32,13 @@ function MapPage() {
             .then(data => setFetchedAttractions(data.content))
     },[])
 
-    function newSearch(longitude, latitude) {
+    function newSearch(longitude, latitude, zoomLevel) {
       setMapSearchParams({
         center: {
           lng: longitude,
-          lat: latitude
-        }
+          lat: latitude, 
+        },
+        zoom: zoomLevel
       })
     }
 
@@ -47,24 +47,12 @@ function MapPage() {
   
      <div style={{ height: '100vh', width: '100%' }}>
         <MapSearch searchCallback={ newSearch } />
-          <Box sx={{ width: 300 }}>
-      <Slider
-        aria-label="Temperature"
-        defaultValue={30}
-        //getAriaValueText={valuetext}
-        valueLabelDisplay="auto"
-        shiftStep={30}
-        step={10}
-        marks
-        min={10}
-        max={100}
-      />
-    </Box>
       <GoogleMapReact
         bootstrapURLKeys={{ key: import.meta.env.VITE_GOOGLE_MAPS_API_KEY }}
         defaultCenter={defaultMapProps.center}
         center={mapSearchParams.center}
         defaultZoom={defaultMapProps.zoom}
+        zoom={mapSearchParams.zoom}
       >
         {fetchedAttractions.map(element => (
               <Tooltip title={element.attraction.name} lat={element.attraction.location.coordinates[1]} lng={element.attraction.location.coordinates[0]}>

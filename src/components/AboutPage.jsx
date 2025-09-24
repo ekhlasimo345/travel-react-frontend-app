@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 import './AboutPage.css'
 
@@ -13,22 +14,25 @@ const cards = [
     id: 1,
     title: 'Mohammad',
     image: 'https://maessencsc.com/wp-content/uploads/2024/08/mercedes-benz-g-klasse-w463-g63-2023-magno.jpg',
-    description: 'front end developer dvsvsnv sdvisfjsd ewsfjisdoiewf sdusfisjs dfsef sufsuf sefi efu9s uf9s dfdf',
-    socialMedia:'https://www.varzesh3.com/'
+    description: 'front end developer ',
+    socialMedia:'https://www.linkedin.com/in/mohammad-ekhlasi-703143328',
+    gitHub:'https://github.com/ekhlasimo345',
   },
   {
     id: 2,
     title: 'Victoria',
     image: 'https://maessencsc.com/wp-content/uploads/2024/08/mercedes-benz-g-klasse-w463-g63-2023-magno.jpg',
     description: 'back end developer',
-    socialMedia:''
+    socialMedia:'https://www.linkedin.com/in/viktoriia-h-345585358',
+    gitHub:'https://github.com/vinylsoap',
   },
   {
     id: 3,
     title: 'Tri',
     image: 'https://maessencsc.com/wp-content/uploads/2024/08/mercedes-benz-g-klasse-w463-g63-2023-magno.jpg',
     description: 'Text here',
-    socialMedia:''
+    socialMedia:'',
+    gitHub:'',
   },
 ];
 
@@ -36,9 +40,6 @@ const cards = [
 
 
 function AboutPage(){
- 
-
-
   return(
     <>
     <h1>About Us:</h1>
@@ -72,7 +73,8 @@ function AboutPage(){
               <Typography variant="body2" color="text.secondary">
                 {card.description}
               </Typography>
-              <a target="_blank"  href={card.socialMedia} ><LinkedInIcon/></a> 
+              { card.socialMedia && (<a target="_blank"  href={card.socialMedia} ><LinkedInIcon/></a>) } 
+              { card.gitHub && (<a target="_blank"  href={card.gitHub} ><GitHubIcon/></a>) } 
             </CardContent>
           </CardActionArea>
         </Card>
