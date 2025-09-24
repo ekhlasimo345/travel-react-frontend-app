@@ -22,13 +22,17 @@ function MapPage() {
       const [fetchedAttractions, setFetchedAttractions] = useState([])
       
       const [mapSearchParams, setMapSearchParams] = useState({
-        center: defaultMapProps.center
+        center: defaultMapProps.center,
+        zoom: defaultMapProps.zoom,
+        distance: defaultDistanceMark.distance
       })
       const circleRef= useRef(null)
 
 
       useEffect(() => {
-        fetch(`${import.meta.env.VITE_TRAVEL_APP_BACKEND_BASE_URL}/api/attraction?searchPointLongitude=4.402771&searchPointLatitude=51.260197&searchDistanceKm=10`)
+        redrawCircle()
+
+        fetch(`${import.meta.env.VITE_TRAVEL_APP_BACKEND_BASE_URL}/api/attraction?searchPointLongitude=${mapSearchParams.center.lng}&searchPointLatitude=${mapSearchParams.center.lat}&searchDistanceKm=${mapSearchParams.distance}`)   
             .then(response => response.json())
             // 4. Setting *dogImage* to the image url that we received from the response above
             .then(data => setFetchedAttractions(data.content))
@@ -48,18 +52,24 @@ function MapPage() {
 
   function drawCircleOnMapLoaded(map, maps){
     circleRef.current= new maps.Circle({
-      strokeColor: "#035f08ff",
-      strokeOpacity: 0.30,
+      strokeColor: "#ebe00aff",
+      strokeOpacity: 0.80,
       strokeWeight: 2,
-      fillColor: "#09cb23ff",
-      fillOpacity: 0.15,
+      fillColor: "#cb7d09ff",
+      fillOpacity: 0.35,
       map: map,
       center: mapSearchParams.center,
       radius: mapSearchParams.distance * 1000
     })
-    
   }
 
+  function redrawCircle() {
+    if (circleRef.current) {
+      circleRef.current.setCenter(mapSearchParams.center)
+      circleRef.current.setRadius(mapSearchParams.distance * 1000)
+    }
+   
+  }
 
   return (
     <>
