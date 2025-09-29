@@ -16,7 +16,7 @@ import AboutPage from './components/AboutPage.jsx';
 const theme = createTheme({
   cssVariables: true,
   palette: {
-   mode: 'dark'
+   mode: 'light'
   },
 });
 
