@@ -48,7 +48,7 @@ function AboutPage(){
     <>
     
     <Typography variant='h6'sx={{
-       backgroundColor: "#d2de66d5",
+       backgroundColor: "#66de84d5",
        color: "black",
        marginTop:"20px",
        padding: "8px 12px",
@@ -71,7 +71,7 @@ function AboutPage(){
         display: 'grid',
         marginBlock: '20px',
         gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))',
-        gap: 2,
+        gap: 3,
         
       }}
     >
@@ -79,7 +79,7 @@ function AboutPage(){
        
         <Card
           sx={{
-            backgroundColor: '#d2de66ac',
+            backgroundColor: '#66deb8ac',
             transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                '&:hover': {
                 transform: "translate(5px, 15px)",

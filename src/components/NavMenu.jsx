@@ -41,10 +41,10 @@ function NavMenu() {
             component="a"
             href="#app-bar-with-responsive-menu"
             sx={{
-              mr: 2,
+              mr: 1,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
-              fontWeight: 700,
+              fontWeight: 200,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
@@ -60,7 +60,7 @@ function NavMenu() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              color="rgba(255, 60, 34, 0.93)"
             >
               <MenuIcon />
             </IconButton>
@@ -84,7 +84,7 @@ function NavMenu() {
                <Typography sx={{ textAlign: 'center' }}>Home</Typography>
               </MenuItem>
                <MenuItem key="about" onClick={e => { handleCloseNavMenu(); navigate("/about"); }}>
-                <Typography sx={{ textAlign: 'center' }}>About</Typography>           
+                <Typography sx={{ textAlign: 'center', letterSpacing: '.03rem', }}>About</Typography>           
               </MenuItem>
             </Menu>
           </Box>
