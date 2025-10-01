@@ -90,7 +90,7 @@ function NavMenu() {
           </Box>
           <TravelExploreIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
-            variant="h5"
+            variant="h6"
             noWrap
             component="a"
             href="#app-bar-with-responsive-menu"
