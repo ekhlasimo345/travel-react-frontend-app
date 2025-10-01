@@ -1,0 +1,27 @@
+.attraction-name{
+    font-weight: bolder;
+    font-size: 1.25em;
+}
+
+.attraction-icon-box.BAD {
+    color : red;
+}
+.attraction-icon-box.NEUTRAL {
+    color : yellow;
+}
+.attraction-icon-box.GOOD {
+    color : green;
+}
+
+
+.rating-word {
+  &.BAD {
+    color : red;
+  }
+  &.NEUTRAL {
+    color : yellow;
+  }
+  &.GOOD {
+    color : green;
+  }
+}

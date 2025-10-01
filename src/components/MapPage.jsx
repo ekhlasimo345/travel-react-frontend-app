@@ -1,12 +1,11 @@
 import GoogleMapReact from 'google-map-react';
 import { useState , useEffect , useRef} from 'react'
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import Tooltip from '@mui/material/Tooltip';
 
 
 import MapSearch from './MapSearch';
 import './MapPage.css'
 import {defaultDistanceMark} from './MapSearch'
+import Attraction from './Attraction';
 
 
 const defaultMapProps = {
@@ -86,11 +85,8 @@ function MapPage() {
         onGoogleApiLoaded={({ map, maps }) => drawCircleOnMapLoaded(map, maps)}
         
       >
-        {fetchedAttractions.map(element => (
-              <Tooltip title={element.attraction.name} lat={element.attraction.location.coordinates[1]} lng={element.attraction.location.coordinates[0]}>
-                  <LocationOnIcon  className="attraction-icon-box"/>
-              </Tooltip>
-
+        {fetchedAttractions.map(attr => (
+             <Attraction element={attr} lat={attr.attraction.location.coordinates[1]} lng={attr.attraction.location.coordinates[0]}/>
             ))}
       </GoogleMapReact>
 
