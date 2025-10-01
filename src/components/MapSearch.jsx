@@ -50,7 +50,9 @@ function MapSearch({searchCallback}) {
 
 
 
-  function searchForLocationByText() {
+  function searchForLocationByText(event) {
+    event.preventDefault()
+    
     fetch(`https://places.googleapis.com/v1/places:searchText`,
         {
             method: 'POST',
@@ -78,9 +80,11 @@ function MapSearch({searchCallback}) {
   return (
     <>
        <Stack spacing="4" sx={{p:1, gap:'15px', }} direction="row" justifyContent="center" alignItems="center">
-    <TextField label="search location" variant="outlined" placeholder="Madrid" 
+    <form onSubmit={ searchForLocationByText }>
+      <TextField label="search location" variant="outlined" placeholder="Madrid" 
         value={searchText} onChange={e => setSearchText(e.target.value)}
-    />
+      />
+    </form>
 
       <Box sx={{ width: 150 }}>
         <Slider
