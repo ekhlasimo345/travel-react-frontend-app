@@ -7,7 +7,6 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
-import Container from '@mui/material/Container'
 
 import './AboutPage.css'
 import { GitHub } from '@mui/icons-material';
@@ -124,7 +123,7 @@ function AboutPage(){
               <img src={card.image} className='imageStyle'/>
               <Typography 
               variant="body2" color="text.secondary" sx={{
-                marginBottom:'100px'
+                marginBottom:'10px'
               }}>
                 {card.description}
               </Typography > 
@@ -133,8 +132,6 @@ function AboutPage(){
                   href={card.socialMedia}
                   target="_blank"
                   color="info"
-                  sx={{
-                  }}
                 >
                   <LinkedInIcon />
                 </IconButton>

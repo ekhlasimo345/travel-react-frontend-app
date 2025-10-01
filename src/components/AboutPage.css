@@ -9,9 +9,8 @@
 
 .imageStyle {
     display: flex;
-    float: right;
-    width: 50%;
+    width: 100%;
     border-radius: 12px;
     margin-top: 8px;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 }

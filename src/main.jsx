@@ -16,7 +16,10 @@ import AboutPage from './components/AboutPage.jsx';
 const theme = createTheme({
   cssVariables: true,
   palette: {
-   mode: 'light'
+   mode: 'dark',
+   background: {
+      default: "#090909da"
+    }
   },
 });
 
