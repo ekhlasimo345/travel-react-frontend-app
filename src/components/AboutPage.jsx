@@ -50,7 +50,7 @@ function AboutPage(){
     <Typography variant='h6'
        className='general-info-container'
       sx={{
-       backgroundColor: "#4437d174",
+       backgroundColor: "#4AA86D ",
        color: "black",
        marginTop:"20px",
        padding: "8px 12px",
@@ -97,7 +97,7 @@ function AboutPage(){
        
         <Card
           sx={{
-            backgroundColor: '#4437d174',
+            backgroundColor: '#4AA86D ',
             transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                '&:hover': {
                 transform: "translate(5px, 15px)",
@@ -115,14 +115,15 @@ function AboutPage(){
                
             }}
           >
-            <CardContent sx={{ height: '100%'}}>
+            <CardContent sx={{ height: '100%', color:'white'}}>
               <Typography variant="h5" component="div">
                 {card.title}
               </Typography>
               
               <img src={card.image} className='imageStyle'/>
               <Typography 
-              variant="body2" color="text.secondary" sx={{
+              variant="body2"  sx={{
+                color:'black',
                 marginBottom:'10px'
               }}>
                 {card.description}

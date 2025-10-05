@@ -18,13 +18,13 @@ const theme = createTheme({
   palette: {
      mode: 'light',
     primary: {
-      main: '#5f84f1ff',
+      main: '#0f5771ff',
     },
     secondary: {
-      main: '#2394ce',
+      main: '#0f4864ff',
     },
     info: {
-      main: '#1976d2',
+      main: '#192cd2ff',
     },
     success: {
       main: '#28da31',
