@@ -50,7 +50,7 @@ function AboutPage(){
     <Typography variant='h6'
        className='general-info-container'
       sx={{
-       backgroundColor: "#66b4ded5",
+       backgroundColor: "#4437d174",
        color: "black",
        marginTop:"20px",
        padding: "8px 12px",
@@ -97,7 +97,7 @@ function AboutPage(){
        
         <Card
           sx={{
-            backgroundColor: '#66c0deac',
+            backgroundColor: '#4437d174',
             transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                '&:hover': {
                 transform: "translate(5px, 15px)",
