@@ -17,22 +17,26 @@ const cards = [
   {
     id: 1,
     title: 'Mohammad',
-    image: 'https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI=',
-    description: 'front end developer ',
+    major:'Frontend Developer',
+    image: '/Mohammad.JPG',
+    description: 'Hi, I’m Mohammad — a frontend developer just starting out but deeply passionate about coding and always learning. Building this site has been a really meaningful step for me, not just because of the coding, but because I had the chance to be part of a project that can genuinely help travelers with disabilities explore the world with more freedom and make their lives easier. I’m proud to contribute to such an important mission, and it inspires me to keep growing as a developer.',
+    
     socialMedia:'https://www.linkedin.com/in/mohammad-ekhlasi-703143328',
     gitHub:'https://github.com/ekhlasimo345',
   },
   {
     id: 2,
     title: 'Victoria',
+    major:'Backend Developer',
     image: 'https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI=',
-    description: 'back end developer',
+    description: '',
     socialMedia:'https://www.linkedin.com/in/viktoriia-h-345585358',
     gitHub:'https://github.com/vinylsoap',
   },
   {
     id: 3,
     title: 'Thanh & Tri',
+    major:'',
     image: '/Thanh & Tri.jpeg',
     description: 'Even though Thanh suffered from polio when it was still prevalent in Vietnam during her childhood, the resulting leg paralysis has not stopped her from leading an adventurous life.After having resettled to Austria in her adult life, she and her fitness-enthusiastic nephew Tri now use every opportunity to travel the world, explore wondrous places and discover delicious food together.The aunt-nephew duo is proud to act as testers for the Journey Hero web application.',
     socialMedia:'',
@@ -119,12 +123,18 @@ function AboutPage(){
               <Typography variant="h5" component="div">
                 {card.title}
               </Typography>
-              
+              <Typography 
+                variant="body2" 
+                 sx={{color:'rgba(69, 96, 64, 0.86)'
+              }}>
+                {card.major}
+              </Typography >              
               <img src={card.image} className='imageStyle'/>
               <Typography 
-              variant="body2"  sx={{
-                color:'black',
-                marginBottom:'10px'
+                variant="body1" 
+                 sx={{
+                  color:'black',
+                  marginBottom:'5px'
               }}>
                 {card.description}
               </Typography > 

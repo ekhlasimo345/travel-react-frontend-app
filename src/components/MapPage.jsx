@@ -51,10 +51,10 @@ function MapPage() {
 
   function drawCircleOnMapLoaded(map, maps){
     circleRef.current= new maps.Circle({
-      strokeColor: "#eb770aff",
+      strokeColor: "#0f5771e2",
       strokeOpacity: 0.80,
       strokeWeight: 2,
-      fillColor: "#cbc809ff",
+      fillColor: "#4AA86D",
       fillOpacity: 0.35,
       map: map,
       center: mapSearchParams.center,
