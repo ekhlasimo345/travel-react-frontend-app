@@ -18,7 +18,7 @@ const cards = [
     id: 1,
     title: 'Mohammad',
     major:'Frontend Developer',
-    image: '/Mohammad.JPG',
+    image: '/Mohammad.jpg',
     description: 'Hi, I’m Mohammad — a frontend developer just starting out but deeply passionate about coding and always learning. Building this site has been a really meaningful step for me, not just because of the coding, but because I had the chance to be part of a project that can genuinely help travelers with disabilities explore the world with more freedom and make their lives easier. I’m proud to contribute to such an important mission, and it inspires me to keep growing as a developer.',
     
     socialMedia:'https://www.linkedin.com/in/mohammad-ekhlasi-703143328',
@@ -28,8 +28,8 @@ const cards = [
     id: 2,
     title: 'Victoria',
     major:'Backend Developer',
-    image: 'https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI=',
-    description: '',
+    image: '/Victoria.jpg',
+    description: 'Victoria is on her way to becoming a future developer who can tackle any problem requiring a logical approach. Her interest in this field began in high school math classes, when she unwittingly realized that solving various problems could be incredibly engaging. Her interest and curiosity led her to computer engineering, where she continues to learn more about the tech world. Vika explored several development paths before deciding that back-end development attracted her the most.',
     socialMedia:'https://www.linkedin.com/in/viktoriia-h-345585358',
     gitHub:'https://github.com/vinylsoap',
   },
@@ -86,7 +86,7 @@ function AboutPage(){
       </div>
     </Typography>
     <Typography className='general-info-container' >
-      <h1>Meat Our Team</h1>
+      <h1>Meet Our Team</h1>
     </Typography>
       <Box
         sx={{
