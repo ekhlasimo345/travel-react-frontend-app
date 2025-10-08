@@ -36,7 +36,7 @@ const cards = [
   {
     id: 3,
     title: 'Thanh & Tri',
-    major:'',
+    major:'Testers',
     image: '/Thanh & Tri.jpeg',
     description: 'Even though Thanh suffered from polio when it was still prevalent in Vietnam during her childhood, the resulting leg paralysis has not stopped her from leading an adventurous life. After having resettled to Austria in her adult life, she and her fitness-enthusiastic nephew Tri now use every opportunity to travel the world, explore wondrous places and discover delicious food together. The aunt-nephew duo is proud to act as testers for the Journey Hero web application.',
     socialMedia:'',
