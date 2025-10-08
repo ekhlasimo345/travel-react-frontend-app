@@ -39,7 +39,7 @@ function NavMenu() {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/#/"
             sx={{
               mr: 1,
               display: { xs: 'none', md: 'flex' },
@@ -92,7 +92,7 @@ function NavMenu() {
           <Typography
             variant="h7"
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/#/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },

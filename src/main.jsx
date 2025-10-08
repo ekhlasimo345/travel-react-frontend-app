@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material/styles';
-import { BrowserRouter, Routes, Route } from 'react-router'
+import { HashRouter, Routes, Route } from 'react-router'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import CssBaseline from '@mui/material/CssBaseline';
@@ -47,14 +47,14 @@ createRoot(document.getElementById('root')).render(
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
 
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route path="/" element={<App />}>
               <Route index element={<MapPage />}/>
               <Route path="about" element={<AboutPage />}/>
             </Route>
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
 
       </ThemeProvider>
 
