@@ -86,7 +86,7 @@ function MapPage() {
         
       >
         {fetchedAttractions.map(attr => (
-             <Attraction element={attr} lat={attr.attraction.location.coordinates[1]} lng={attr.attraction.location.coordinates[0]}/>
+             <Attraction key={attr.id} element={attr} lat={attr.attraction.location.coordinates[1]} lng={attr.attraction.location.coordinates[0]}/>
             ))}
       </GoogleMapReact>
 

@@ -7,7 +7,7 @@ import './Attraction.css'
 function Attraction({element}) {
   return (
     <>
-        <Tooltip title={
+        <Tooltip enterTouchDelay="0" leaveTouchDelay="5000" title={
           <React.Fragment>
              <u className='attraction-name'>{element.attraction.name}</u>
              <br />
