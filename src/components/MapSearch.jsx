@@ -9,6 +9,7 @@ import Box from '@mui/material/Box';
 
 import { useState } from 'react'
 
+
 const searchDistanceMarks = [
   {
     value: 0,
@@ -98,7 +99,7 @@ function MapSearch({searchCallback}) {
           marks={searchDistanceMarks}
         />
       </Box>
-        <IconButton aria-label="delete" onClick={ searchForLocationByText }>
+        <IconButton aria-label="search" onClick={ searchForLocationByText }>
         <SearchIcon  />
       </IconButton >
     </Stack> 

@@ -1,11 +1,16 @@
 import GoogleMapReact from 'google-map-react';
 import { useState , useEffect , useRef} from 'react'
+import IconButton from '@mui/material/IconButton';
+import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
+import { useAuth0 } from '@auth0/auth0-react'
+
 
 
 import MapSearch from './MapSearch';
 import './MapPage.css'
 import {defaultDistanceMark} from './MapSearch'
 import Attraction from './Attraction';
+import AttractionInput from './AttractionInput';
 
 
 const defaultMapProps = {
@@ -19,12 +24,14 @@ const defaultMapProps = {
 
 function MapPage() {
       const [fetchedAttractions, setFetchedAttractions] = useState([])
-      
       const [mapSearchParams, setMapSearchParams] = useState({
         center: defaultMapProps.center,
         zoom: defaultMapProps.zoom,
         distance: defaultDistanceMark.distance
       })
+      const [newAttractionMode, setNewAttractionMode] = useState(false)
+      const [newAttractionObject, setNewAttractionObject] = useState(null)
+      const { isAuthenticated } = useAuth0();
       const circleRef= useRef(null)
 
 
@@ -67,14 +74,32 @@ function MapPage() {
       circleRef.current.setCenter(mapSearchParams.center)
       circleRef.current.setRadius(mapSearchParams.distance * 1000)
     }
-   
+  }
+
+  function clickedOnMap({lat, lng}) {
+    if (newAttractionMode) {
+      setNewAttractionObject({
+        attractionName: '',
+        attractionLongitude: lng,
+        attractionLatitude: lat,
+        disabilityType: null,
+        ratingLevel: null
+      })
+      setNewAttractionMode(false)
+    }
   }
 
   return (
     <>
   
      <div style={{ height: '100vh', width: '100%' }}>
-        <MapSearch searchCallback={ newSearch } />
+        <div className="map-toolbar">
+          {newAttractionMode ? (<span>Please click on map where you want to add attraction.</span>) : (<MapSearch searchCallback={ newSearch } />)}
+          { isAuthenticated && !newAttractionMode && (<IconButton aria-label="add new attraction" onClick={e => setNewAttractionMode(true)}>
+            <AddLocationAltIcon  />
+          </IconButton > )} 
+        </div>
+               
       <GoogleMapReact
         bootstrapURLKeys={{ key: import.meta.env.VITE_GOOGLE_MAPS_API_KEY }}
         defaultCenter={defaultMapProps.center}
@@ -83,11 +108,12 @@ function MapPage() {
         zoom={mapSearchParams.zoom}
         yesIWantToUseGoogleMapApiInternals= {true}
         onGoogleApiLoaded={({ map, maps }) => drawCircleOnMapLoaded(map, maps)}
-        
+        onClick={clickedOnMap}
       >
         {fetchedAttractions.map(attr => (
              <Attraction key={attr.id} element={attr} lat={attr.attraction.location.coordinates[1]} lng={attr.attraction.location.coordinates[0]}/>
             ))}
+        {newAttractionObject && (<AttractionInput element={newAttractionObject} lat={newAttractionObject.attractionLatitude} lng={newAttractionObject.attractionLongitude}/>) }
       </GoogleMapReact>
 
     </div>

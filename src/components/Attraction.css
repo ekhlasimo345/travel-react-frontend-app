@@ -12,7 +12,9 @@
 .attraction-icon-box.GOOD {
     color : green;
 }
-
+.attraction-icon-box.NEW {
+    color : black;
+}
 
 .rating-word {
   &.BAD {

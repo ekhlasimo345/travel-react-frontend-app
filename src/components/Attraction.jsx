@@ -19,7 +19,6 @@ function Attraction({element}) {
     } else { 
       return (<HearingIcon sx={{fontSize: '1.5em'}} titleAccess="Deaf/Hearing weakness"/>)
     }
-    
   }
 
   return (
