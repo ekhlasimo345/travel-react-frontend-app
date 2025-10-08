@@ -18,7 +18,7 @@
 
 .rating-word {
   &.BAD {
-    color : red;
+    color : rgba(172, 2, 2, 0.911);
   }
   &.NEUTRAL {
     color : yellow;
