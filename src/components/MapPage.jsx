@@ -11,6 +11,7 @@ import './MapPage.css'
 import {defaultDistanceMark} from './MapSearch'
 import Attraction from './Attraction';
 import AttractionInput from './AttractionInput';
+import { Margin } from '@mui/icons-material';
 
 
 const defaultMapProps = {
@@ -93,8 +94,8 @@ function MapPage() {
     <>
   
      <div style={{ height: '100vh', width: '100%' }}>
-        <div className="map-toolbar">
-          {newAttractionMode ? (<span>Please click on map where you want to add attraction.</span>) : (<MapSearch searchCallback={ newSearch } />)}
+        <div  className="map-toolbar">
+          {newAttractionMode ? (<span className="map-toolbar-guid">Please click on map where you want to add attraction.</span>) : (<MapSearch searchCallback={ newSearch } />)}
           { isAuthenticated && !newAttractionMode && (<IconButton aria-label="add new attraction" onClick={e => setNewAttractionMode(true)}>
             <AddLocationAltIcon  />
           </IconButton > )} 

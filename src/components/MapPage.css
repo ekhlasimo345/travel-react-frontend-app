@@ -3,4 +3,9 @@
     flex-direction: row;
     justify-content:center; 
     align-items: center;
+  
+    .map-toolbar-guid {
+          margin: 15px;
+          color: gray;
+    }
 }

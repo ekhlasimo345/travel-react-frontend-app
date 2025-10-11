@@ -17,6 +17,8 @@ function AttractionInput({element}) {
              <span>Disability: </span>
              <br />
              <span>Rating: </span>
+             <br />
+             <button>save</button>
             </form>
           </React.Fragment>
         } >
