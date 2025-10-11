@@ -16,8 +16,8 @@ import { Margin } from '@mui/icons-material';
 
 const defaultMapProps = {
     center: {
-      lat: 	51.260197,
-      lng: 4.402771
+      lat: 	40.407311,
+      lng: -3.708583
     },
     zoom: defaultDistanceMark.zoom
   };
@@ -32,7 +32,7 @@ function MapPage() {
       })
       const [newAttractionMode, setNewAttractionMode] = useState(false)
       const [newAttractionObject, setNewAttractionObject] = useState(null)
-      const { isAuthenticated } = useAuth0();
+      const { isAuthenticated, getAccessTokenSilently } = useAuth0();
       const circleRef= useRef(null)
 
 
@@ -90,6 +90,35 @@ function MapPage() {
     }
   }
 
+ function newAttractionInput (newAttraction){
+    setNewAttractionObject(null)
+
+     if (newAttraction !== null) {
+      getAccessTokenSilently().then(accessToken => {
+        fetch(`${import.meta.env.VITE_TRAVEL_APP_BACKEND_BASE_URL}/api/attraction`,
+          {
+            method: "POST",
+            headers: {
+              "Authorization": `Bearer ${accessToken}`,
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(newAttraction),
+          }
+        )
+        .then(response => setMapSearchParams({
+          center: {
+            lng: newAttraction.attractionLongitude,
+            lat: newAttraction.attractionLatitude, 
+          },
+          zoom: mapSearchParams.zoom,
+          distance: mapSearchParams.distance
+        }))
+        .catch(error => console.error(error))
+      });
+    }
+
+ }
+
   return (
     <>
   
@@ -114,7 +143,7 @@ function MapPage() {
         {fetchedAttractions.map(attr => (
              <Attraction key={attr.id} element={attr} lat={attr.attraction.location.coordinates[1]} lng={attr.attraction.location.coordinates[0]}/>
             ))}
-        {newAttractionObject && (<AttractionInput element={newAttractionObject} lat={newAttractionObject.attractionLatitude} lng={newAttractionObject.attractionLongitude}/>) }
+        {newAttractionObject && (<AttractionInput element={newAttractionObject} lat={newAttractionObject.attractionLatitude} lng={newAttractionObject.attractionLongitude} saveCallback={newAttractionInput}/>) }
       </GoogleMapReact>
 
     </div>
