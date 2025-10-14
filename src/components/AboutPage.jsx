@@ -118,6 +118,12 @@ function AboutPage(){
                },
                cursor: 'auto',
               },
+              '@media (hover: none)': {
+                '&:active': {
+                  transform: 'scale(0.97)', // Slight shrink when tapped
+                  boxShadow: '0 2px 10px rgba(0, 0, 0, 0.15)',
+                },
+              },
             }}
           >
             <CardContent sx={{ height: '100%', color:'white'}}>
