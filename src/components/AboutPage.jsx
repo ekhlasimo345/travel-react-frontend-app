@@ -112,11 +112,12 @@ function AboutPage(){
             sx={{
               height: '100%',
                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+               '@media (hover: hover)': {
                '&:hover': {
                 transform: 'scale(1.03)',
                },
                cursor: 'auto',
-               
+              },
             }}
           >
             <CardContent sx={{ height: '100%', color:'white'}}>
