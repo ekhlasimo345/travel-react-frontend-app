@@ -30,11 +30,11 @@ function AttractionInput({element, saveCallback}) {
              <br />
              <span>Disability: </span>
              <input  type="radio" value="MOBILITY" name="disability" required id="mobility" onChange={e => element.disabilityType = e.target.value} />
-             <label for="mobility"><AccessibleIcon sx={{fontSize: '1.5em' }} titleAccess="Wheelchair/Walking difficulty"/></label>
+             <label for="mobility"><AccessibleIcon sx={{fontSize: '1.6em' }} titleAccess="Wheelchair/Walking difficulty"/></label>
              <input  type="radio" value="VISION" name="disability" required id="mobility" onChange={e => element.disabilityType = e.target.value} />
-             <label for="mobility">(<BlindIcon sx={{fontSize: '1.5em'}} titleAccess="Blind/Vision impairment"/></label>
+             <label for="mobility"><BlindIcon sx={{fontSize: '1.6em'}} titleAccess="Blind/Vision impairment"/></label>
              <input  type="radio" value="AUDIO" name="disability" required id="hearing" onChange={e => element.disabilityType = e.target.value} />
-             <label for="hearing"><HearingIcon sx={{fontSize: '1.5em'}} titleAccess="Deaf/Hearing weakness"/></label>
+             <label for="hearing"><HearingIcon sx={{fontSize: '1.6em'}} titleAccess="Deaf/Hearing weakness"/></label>
              <br />
              <span>Rating: </span>
               <input  type="radio" value="GOOD" name="rating" required id="good" onChange={e => element.ratingLevel = e.target.value} />

@@ -126,7 +126,7 @@ function MapPage() {
         <div  className="map-toolbar">
           {newAttractionMode ? (<span className="map-toolbar-guid">Please click on map where you want to add attraction.</span>) : (<MapSearch searchCallback={ newSearch } />)}
           { isAuthenticated && !newAttractionMode && (<IconButton aria-label="add new attraction" onClick={e => setNewAttractionMode(true)}>
-            <AddLocationAltIcon  />
+            <AddLocationAltIcon titleAccess="Add new attraction" />
           </IconButton > )} 
         </div>
                
