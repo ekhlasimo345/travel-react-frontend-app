@@ -3,6 +3,9 @@
     font-size: 1.25em;
 }
 
+.attraction-icon-box {
+    transform : translate(-50%, -100%);
+}
 .attraction-icon-box.BAD {
     color : red;
 }

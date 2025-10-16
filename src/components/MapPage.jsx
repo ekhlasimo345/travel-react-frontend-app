@@ -16,10 +16,11 @@ import { Margin } from '@mui/icons-material';
 
 const defaultMapProps = {
     center: {
-      lat: 	40.407311,
-      lng: -3.708583
+      lat: Number(sessionStorage.getItem('lastLatitude')) || 40.407311,
+      lng: Number(sessionStorage.getItem('lastLongitude')) || -3.708583
     },
-    zoom: defaultDistanceMark.zoom
+    zoom: Number(sessionStorage.getItem('lastZoomLevel')) || defaultDistanceMark.zoom,
+    distance: Number(sessionStorage.getItem('lastDistanceKm')) || defaultDistanceMark.distance,
   };
 
 
@@ -28,7 +29,7 @@ function MapPage() {
       const [mapSearchParams, setMapSearchParams] = useState({
         center: defaultMapProps.center,
         zoom: defaultMapProps.zoom,
-        distance: defaultDistanceMark.distance
+        distance: defaultMapProps.distance
       })
       const [newAttractionMode, setNewAttractionMode] = useState(false)
       const [newAttractionObject, setNewAttractionObject] = useState(null)
@@ -38,6 +39,10 @@ function MapPage() {
 
       useEffect(() => {
         redrawCircle()
+        sessionStorage.setItem('lastLatitude', mapSearchParams.center.lat)
+        sessionStorage.setItem('lastLongitude', mapSearchParams.center.lng)
+        sessionStorage.setItem('lastZoomLevel', mapSearchParams.zoom)
+        sessionStorage.setItem('lastDistanceKm', mapSearchParams.distance)
 
         fetch(`${import.meta.env.VITE_TRAVEL_APP_BACKEND_BASE_URL}/api/attraction?searchPointLongitude=${mapSearchParams.center.lng}&searchPointLatitude=${mapSearchParams.center.lat}&searchDistanceKm=${mapSearchParams.distance}`)   
             .then(response => response.json())
