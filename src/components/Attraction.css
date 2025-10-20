@@ -6,7 +6,10 @@
 .attraction-icon-box {
     transform : translate(-50%, -100%);
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> main
 .attraction-icon-box.BAD {
     color : red;
 }
