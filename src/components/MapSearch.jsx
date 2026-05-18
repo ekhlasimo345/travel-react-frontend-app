@@ -1,14 +1,12 @@
-import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
-
-
 import { useState } from 'react'
 
+import './MapSearch.css'
 
 const searchDistanceMarks = [
   {
