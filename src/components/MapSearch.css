@@ -1,5 +1,5 @@
 .MuiSlider-valueLabelOpen.MuiSlider-valueLabel  {
-    top: 50px;
+    top: 0;
 
     &::before {
         display: none;
